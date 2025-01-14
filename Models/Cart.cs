@@ -1,6 +1,6 @@
 ﻿namespace VONEWEB.Models
 {
-    public class Order
+    public class Cart
     {
     }
 }
