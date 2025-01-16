@@ -1,6 +1,7 @@
-
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using VONEWEB.Data;
+using VONEWEB.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +15,24 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
 var app = builder.Build();
 
+//Identity Services Config
+builder.Services.AddIdentity<User, IdentityRole<Guid>>()
+    .AddEntityFrameworkStores<VONEDbContext>()
+    .AddDefaultTokenProviders();
 
+// Configure Identity options (optional)
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Password settings
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 6;
 
-
+    // User settings
+    options.User.RequireUniqueEmail = true;
+});
 
 
 // Configure the HTTP request pipeline.
