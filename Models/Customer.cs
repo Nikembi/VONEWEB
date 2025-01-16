@@ -1,8 +1,12 @@
-﻿namespace VONEWEB.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VONEWEB.Models
 {
     public class Customer
     {
-        public int CustomerId { get; set; }
+        [Key]
+        public Guid CustomerId { get; set; }
+        [Required]
         public string CustomerName { get; set; }
         public string Address1 { get; set; }
         public string Town { get; set; }

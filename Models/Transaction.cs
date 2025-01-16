@@ -9,7 +9,7 @@ namespace VONEWEB.Models
         public Guid TransactionID { get; set; } = Guid.NewGuid();
 
         [Required]
-        public Guid OrderID { get; set; }
+        public Guid OrderId { get; set; }
 
         [ForeignKey("OrderID")]
         public Order Order { get; set; }

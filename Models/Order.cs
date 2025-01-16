@@ -1,8 +1,12 @@
-﻿namespace VONEWEB.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VONEWEB.Models
 {
     public class Order
     {
-        public int OrderId { get; set; }
+        [Key]
+        public Guid OrderId { get; set; }
+        [Required]
         public DateTime OrderDate { get; set; }
         public int CustomerId { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }

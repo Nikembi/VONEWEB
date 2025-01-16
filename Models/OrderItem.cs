@@ -1,9 +1,15 @@
-﻿namespace VONEWEB.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace VONEWEB.Models
 {
     public class OrderItem
     {
-        public int OrderItemId { get; set; }
-        public int ProductId { get; set; }
+        [Key]
+        public Guid OrderItemId { get; set; }
+        [Required]
+        public Guid ProductId { get; set; }
+        [Required]
+        public Product Product { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
     }

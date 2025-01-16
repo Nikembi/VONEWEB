@@ -4,7 +4,8 @@ namespace VONEWEB.Models
 {
     public class Product
     {
-        public int ProductId { get; set; }
+        [Key]
+        public Guid ProductId { get; set; }
         public string Description { get; set; }
 
         [MaxLength(255)]
