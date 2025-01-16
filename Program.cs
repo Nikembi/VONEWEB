@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
 builder.Services.AddDbContext<VONEDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("fundingDB")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DB")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
