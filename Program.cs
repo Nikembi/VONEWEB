@@ -13,7 +13,6 @@ builder.Services.AddDbContext<VONEDbContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc();
-var app = builder.Build();
 
 //Identity Services Config
 builder.Services.AddIdentity<User, IdentityRole<Guid>>()
@@ -34,7 +33,7 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
 });
 
-
+var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
