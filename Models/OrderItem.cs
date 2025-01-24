@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace VONEWEB.Models
 {
@@ -7,6 +8,7 @@ namespace VONEWEB.Models
         [Key]
         public Guid OrderItemId { get; set; }
         [Required]
+        [ForeignKey("CartId")]
         public Guid ProductId { get; set; }
         [Required]
         public Product Product { get; set; }

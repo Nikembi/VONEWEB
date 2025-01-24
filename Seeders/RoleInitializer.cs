@@ -9,7 +9,7 @@ namespace VONEWEB.Seeders
         {
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
 
-            UserRole[] roles = { UserRole.admin, UserRole.vip, UserRole.user , UserRole.customer};
+            UserRole[] roles = { UserRole.admin, UserRole.vip, UserRole.user , UserRole.guest};
 
             foreach (var role in roles)
             {

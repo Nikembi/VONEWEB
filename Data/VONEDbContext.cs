@@ -8,7 +8,7 @@ namespace VONEWEB.Data
     public class VONEDbContext : IdentityDbContext<User, IdentityRole<Guid>, Guid>
     {
         DbSet<User> users { get; set; }
-        DbSet<Customer> customers { get; set; }
+        DbSet<Guest> guests { get; set; }
         DbSet<Order> orders { get; set; }
         DbSet<Product> products { get; set; }
         DbSet<OrderItem> ordersItems { get; set; }
@@ -40,6 +40,11 @@ namespace VONEWEB.Data
                     .HasMaxLength(20);
             });
 
+            modelBuilder.Entity<Guest>(entity =>
+            {
+                entity.ToTable(name: "Customers");
+            });
+
             modelBuilder.Entity<IdentityRole<Guid>>(entity =>
             {
                 entity.ToTable(name: "Roles");
@@ -68,6 +73,18 @@ namespace VONEWEB.Data
             modelBuilder.Entity<IdentityUserToken<Guid>>(entity =>
             {
                 entity.ToTable("UserTokens");
+            });
+
+            modelBuilder.Entity<OrderItem>(entity =>
+            {
+
+                entity.HasOne(e => e.Order)
+                    .WithMany(e => e.OrderItems)
+                    .HasForeignKey(e => e.OrderId);
+                entity.HasKey(e => e.OrderItemId);
+                entity.Property(e => e.Price)
+                    .HasColumnType("decimal(18, 2)");
+                entity.ToTable("OrderItems");
             });
         }
     }
