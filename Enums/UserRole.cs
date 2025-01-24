@@ -5,6 +5,6 @@
         user,
         vip,
         admin,
-        customer
+        guest
     }
 }
