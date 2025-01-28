@@ -11,7 +11,7 @@ namespace VONEWEB.Models
         [Required]
         public Guid OrderId { get; set; }
 
-        [ForeignKey("OrderID")]
+        [ForeignKey("OrderId")]
         public Order Order { get; set; }
 
         [Required]

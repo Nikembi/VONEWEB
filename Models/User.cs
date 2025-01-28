@@ -7,7 +7,7 @@ namespace VONEWEB.Models
 {
     public class User : IdentityUser<Guid>
     {
-        public User () 
+        public User()
         {
             ProfilePictureUrl = string.Empty;
             Cart = new List<Cart>();
@@ -23,7 +23,7 @@ namespace VONEWEB.Models
         public string ProfilePictureUrl { get; set; }
 
         [MaxLength(500)]
-        
+
         public DateTime DateJoined { get; set; } = DateTime.UtcNow;
 
         public bool IsActive { get; set; } = true;

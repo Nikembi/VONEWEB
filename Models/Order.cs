@@ -6,7 +6,6 @@ namespace VONEWEB.Models
     {
         [Key]
         public Guid OrderId { get; set; }
-        [Required]
         public DateTime OrderDate { get; set; }
         public int CustomerId { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }

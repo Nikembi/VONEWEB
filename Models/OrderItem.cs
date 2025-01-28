@@ -7,12 +7,13 @@ namespace VONEWEB.Models
     {
         [Key]
         public Guid OrderItemId { get; set; }
+
         [Required]
-        [ForeignKey("CartId")]
         public Guid ProductId { get; set; }
-        [Required]
+
+        [ForeignKey("ProductId")]
         public Product Product { get; set; }
+
         public int Quantity { get; set; }
-        public Product Price { get; set; }
     }
 }

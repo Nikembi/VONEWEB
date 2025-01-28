@@ -22,7 +22,7 @@ namespace VONEWEB.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Call the base class implementation
+      
             base.OnModelCreating(modelBuilder);
 
 
@@ -75,17 +75,16 @@ namespace VONEWEB.Data
                 entity.ToTable("UserTokens");
             });
 
-            modelBuilder.Entity<OrderItem>(entity =>
-            {
+            //modelBuilder.Entity<OrderItem>(entity =>
+            //{
+            //    entity.HasOne(e => e.)
+            //        .WithMany(e => e.OrderItems)
+            //        .HasForeignKey(e => e.OrderId); // Corrected foreign key property
 
-                entity.HasOne(e => e.Order)
-                    .WithMany(e => e.OrderItems)
-                    .HasForeignKey(e => e.OrderId);
-                entity.HasKey(e => e.OrderItemId);
-                entity.Property(e => e.Price)
-                    .HasColumnType("decimal(18, 2)");
-                entity.ToTable("OrderItems");
-            });
+            //    entity.Property(e => e.Price)
+            //        .HasColumnType("decimal(18, 2)");
+            //    entity.ToTable("OrderItems");
+            //});
         }
     }
 }
